@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_market/features/on_boarding/presentation/on_boarding_view.dart';
+import 'package:get/get.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class _SplashBodyState extends State<SplashBody>
     fadingAnimation =
         Tween<double>(begin: 0.2, end: 1).animate(animationController!);
     animationController?.repeat(reverse: true);
-
+    goToNextView();
   }
 
   @override
@@ -55,5 +57,10 @@ class _SplashBodyState extends State<SplashBody>
         ],
       ),
     );
+  }
+  goToNextView(){
+    Future.delayed(const Duration(seconds: 3),(){
+      Get.to(()=>const OnBoardingView(),transition: Transition.rightToLeft);
+    });
   }
 }
