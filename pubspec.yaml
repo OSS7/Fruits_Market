@@ -31,6 +31,9 @@ dependencies:
   doc_widget_annotation: ^0.2.8
   firebase_auth: ^0.15.1+1
   google_sign_in: ^4.5.9
+  fleasy: ^0.14.1
+  get_storage: ^2.0.3
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
 import 'package:fruits_market/core/widgets/custome_buttons.dart';
 import 'package:fruits_market/features/auth/user_information/widgets/user_information_body_item.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+
+import '../../../../core/config/size_config.dart';
 
 class UserInformationBody extends StatefulWidget {
   const UserInformationBody({Key? key}) : super(key: key);
@@ -21,11 +22,11 @@ class _UserInformationBodyState extends State<UserInformationBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SizedBox(
-        height: SizedConfig.defaultSize! * 80,
+        height: SizeConfig.defaultSize! * 80,
         child: Column(
           children: [
             SizedBox(
-              height: SizedConfig.defaultSize! * 10,
+              height: SizeConfig.defaultSize! * 10,
             ),
             UserInformationBodyItem(
               label: 'Enter your name',
@@ -41,10 +42,10 @@ class _UserInformationBodyState extends State<UserInformationBody> {
               maxLines: 5,
             ),
             SizedBox(
-              height: SizedConfig.defaultSize! * 4,
+              height: SizeConfig.defaultSize! * 4,
             ),
             SizedBox(
-              width: SizedConfig.defaultSize! * 13,
+              width: SizeConfig.defaultSize! * 13,
               child:  CustomGeneralButton(
                 text: 'Login',
                 onPress: (){

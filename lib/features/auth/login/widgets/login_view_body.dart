@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fruits_market/core/constant/colors.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
 import 'package:fruits_market/core/widgets/custom_spacer.dart';
 import 'package:fruits_market/core/widgets/custom_text_field.dart';
 import 'package:fruits_market/core/widgets/custome_buttons.dart';
 import 'package:fruits_market/features/auth/user_information/user_informations_view.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/config/size_config.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class LoginViewBody extends StatelessWidget {
         children: [
           const VerticalSpacer(4),
           SizedBox(
-            height: SizedConfig.defaultSize! * 18,
+            height: SizeConfig.defaultSize! * 18,
             child: Center(
               child: Image.asset('assets/images/fruits-kiosk.png'),
             ),
@@ -29,7 +30,7 @@ class LoginViewBody extends StatelessWidget {
             style: TextStyle(
               fontSize: 38,
               fontWeight: FontWeight.bold,
-              color: kMainColor,
+              color: primaryColor,
             ),
           ),
           const Expanded(

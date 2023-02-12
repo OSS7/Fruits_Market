@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
+import 'package:fruits_market/core/constant/colors.dart';
 import 'package:fruits_market/core/widgets/custom_text_field.dart';
+
+import '../../../../core/config/size_config.dart';
 
 class UserInformationBodyItem extends StatelessWidget {
   const UserInformationBodyItem({Key? key, required this.label, this.maxLines, required this.controller,}) : super(key: key);
@@ -19,18 +21,18 @@ class UserInformationBodyItem extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.grey.shade700,
+              color: secondaryColor,
             ),
           ),
           SizedBox(
-            height: SizedConfig.defaultSize! * 1,
+            height: SizeConfig.defaultSize! * 1,
           ),
           CustomTextField(
             controller: controller,
             maxLines: maxLines,
           ),
           SizedBox(
-            height: SizedConfig.defaultSize! * 2,
+            height: SizeConfig.defaultSize! * 2,
           ),
         ],
       ),

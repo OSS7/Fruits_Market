@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
 import 'package:fruits_market/core/widgets/custom_spacer.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../../core/config/size_config.dart';
 
 class PageViewItem extends StatefulWidget {
   final String lottie;
@@ -27,23 +28,23 @@ class _PageViewItemState extends State<PageViewItem>{
       children: [
         const VerticalSpacer(15),
         Container(
-          height: SizedConfig.defaultSize! * 25,
+          height: SizeConfig.defaultSize! * 25,
           child: Lottie.asset(
             widget.lottie,
           ),
         ),
         Text(widget.title,style: _titleStyle,),
-        VerticalSpacer(2),
+        const VerticalSpacer(2),
         Text(widget.subtitle,style: _subtitleStyle,),
       ],
     );
   }
-  TextStyle _titleStyle = TextStyle(
+  final TextStyle _titleStyle = const TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.bold,
     color: Colors.black
   );
-  TextStyle _subtitleStyle = TextStyle(
+  final TextStyle _subtitleStyle = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     color: Colors.grey

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/constant/colors.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
+
+import '../config/size_config.dart';
 
 class CustomGeneralButton extends StatelessWidget {
   final String? text;
@@ -13,9 +14,9 @@ class CustomGeneralButton extends StatelessWidget {
       onTap: onPress,
       child: Container(
         height: 50,
-        width: SizedConfig.screenWidth,
+        width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
-          color: kMainColor,
+          color: primaryColor,
           borderRadius: const BorderRadius.all(
             Radius.circular(8),
           ),
@@ -47,7 +48,7 @@ final Function()? onPress;
       onTap: onPress,
       child: Container(
         height: 50,
-        width: SizedConfig.screenWidth,
+        width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.grey.shade800

@@ -4,7 +4,12 @@ import 'package:fruits_market/features/auth/login/login_page.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import 'core/config/route_config.dart' as Route;
+import 'core/constant/routes.dart';
+import 'core/utils/services/local_storage.dart';
+
 void main() {
+  LocalStorage.init();
   runApp(FruitsMarket());
 }
 ThemeData _darkTheme = ThemeData(
@@ -30,6 +35,8 @@ class FruitsMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: Route.getPages,
+      initialRoute: MyRoutes.HOME,
       theme: _lightTheme,
       darkTheme: _darkTheme,
       home: const SplashView(),

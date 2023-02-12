@@ -11,7 +11,7 @@ class CustomDotsIndicator extends StatelessWidget {
       dotsCount: 3,
       position: dotIndex!,
       decorator: DotsDecorator(
-        activeColor: kMainColor,
+        activeColor: primaryColor,
       ),
     );
   }

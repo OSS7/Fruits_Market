@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_market/core/utils/sized_config.dart';
+
+import '../config/size_config.dart';
 
 class VerticalSpacer extends StatelessWidget {
   const VerticalSpacer(this.value);
@@ -9,7 +10,7 @@ class VerticalSpacer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SizedConfig.defaultSize! * value!,
+      height: SizeConfig.defaultSize! * value!,
     );
   }
 }
@@ -22,7 +23,7 @@ class HorizontalSpacer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: SizedConfig.defaultSize! * value!,
+      width: SizeConfig.defaultSize! * value!,
     );
   }
 }
