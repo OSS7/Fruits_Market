@@ -33,6 +33,7 @@ class _SplashBodyState extends State<SplashBody>
     super.dispose();
     animationController!.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,7 +41,7 @@ class _SplashBodyState extends State<SplashBody>
         children: [
           const Spacer(),
           AnimatedBuilder(
-            builder: (context,_) {
+            builder: (context, _) {
               return Opacity(
                 opacity: fadingAnimation!.value,
                 child: const Text(
@@ -51,7 +52,8 @@ class _SplashBodyState extends State<SplashBody>
                       color: Colors.white),
                 ),
               );
-            }, animation: fadingAnimation!,
+            },
+            animation: fadingAnimation!,
           ),
           const Spacer(),
           Image.asset('assets/images/splash_view_image.png'),
@@ -59,9 +61,10 @@ class _SplashBodyState extends State<SplashBody>
       ),
     );
   }
-  goToNextView(){
-    Future.delayed(const Duration(seconds: 3),(){
-      Get.to(()=>const FruitsView(),transition: Transition.rightToLeft);
+
+  goToNextView() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const FruitsView(), transition: Transition.rightToLeft);
     });
   }
 }

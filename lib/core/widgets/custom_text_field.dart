@@ -72,7 +72,6 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
       },
       style: TextStyle(fontSize: 13, color: colorScheme.onPrimary),
       decoration: InputDecoration(
-
         prefixIcon: Container(
           margin: EdgeInsets.symmetric(
             vertical: 5,

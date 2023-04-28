@@ -8,4 +8,3 @@ class FeatureBody extends StatelessWidget {
     return const Placeholder();
   }
 }
-
