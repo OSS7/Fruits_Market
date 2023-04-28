@@ -14,7 +14,7 @@ final isLTR = Get.locale?.languageCode.contains('en') ?? true;
 List<GetPage> getPages = [
   GetPage(
       name: MyRoutes.ON_BOARDING,
-      page: OnBoardingView.new,
+      page: ()=>const OnBoardingView(),
       transition: Transition.upToDown),
 
 ];

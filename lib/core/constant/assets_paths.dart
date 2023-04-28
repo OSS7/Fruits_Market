@@ -1,5 +1,6 @@
 class MyAssets {
-  static const WORLD_LOTTIE = 'assets/lottie/world.json',
+  static const LOGO = 'assets/images/logo.png',
+      WORLD_LOTTIE = 'assets/lottie/world.json',
       LIKE_LOTTIE = 'assets/lottie/like.json',
       DELIVERY_LOTTIE = 'assets/lottie/delivery.json',
       OTP_LOTTIE = 'assets/lotties/otp.json',
