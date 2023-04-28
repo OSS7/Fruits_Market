@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/services/local_storage.dart';
+import '../../core/utils/services/local_storage.dart';
 import 'languages/ar_language.dart';
 import 'languages/en_language.dart';
+
 /// a class extends from [Translations] => GetX package
 /// responsible for many thing
 /// such as:

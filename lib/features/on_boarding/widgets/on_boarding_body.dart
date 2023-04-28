@@ -5,7 +5,7 @@ import 'package:fruits_market/features/on_boarding/presentation/custom_page_view
 import 'package:fruits_market/features/on_boarding/widgets/custom_dot_indicator.dart';
 import 'package:get/get.dart';
 
-import '../../../core/config/size_config.dart';
+import '../../../config/size_config.dart';
 
 class OnBoardingBody extends StatefulWidget {
   const OnBoardingBody({Key? key}) : super(key: key);

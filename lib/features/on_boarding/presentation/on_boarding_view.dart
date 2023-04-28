@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/features/on_boarding/widgets/on_boarding_body.dart';
 
-import '../../../core/config/size_config.dart';
-
+import '../../../config/size_config.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({Key? key}) : super(key: key);

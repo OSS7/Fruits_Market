@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/constant/assets_paths.dart';
 import '../../../../core/constant/colors.dart';
-import '../../../../core/constant/icons_paths.dart';
-import '../../../../core/widgets/custom_icon.dart';
 
 class FruitsAppBar extends StatelessWidget {
   const FruitsAppBar({Key? key}) : super(key: key);
@@ -39,9 +37,9 @@ class FruitsAppBar extends StatelessWidget {
                 onPressed: () {
                   // Scaffold.of(context).openDrawer();
                 },
-                icon: CustomIcon(
-                  MyIcons.notification,
-                  size: 60,
+                icon: Icon(
+                  Icons.shopping_cart_rounded,
+                  size: 30,
                   color: logoColor,
                   // fit: BoxFit.cover,
                 ),

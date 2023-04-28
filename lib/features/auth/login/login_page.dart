@@ -5,10 +5,10 @@ import 'package:fruits_market/core/widgets/custom_text_field.dart';
 import 'package:fruits_market/core/widgets/custome_buttons.dart';
 import 'package:fruits_market/features/auth/login/widgets/login_view_body.dart';
 
-import '../../../core/config/size_config.dart';
+import '../../../config/size_config.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView ({Key? key}) : super(key: key);
+  const LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,7 @@ class LoginView extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Center(
-          child: LoginViewBody()
-        ),
+        body: Center(child: LoginViewBody()),
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/size_config.dart';
+import '../../config/size_config.dart';
 
 class VerticalSpacer extends StatelessWidget {
   const VerticalSpacer(this.value);

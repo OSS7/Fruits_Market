@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/constant/colors.dart';
 import 'package:fruits_market/core/widgets/custom_text_field.dart';
 
-import '../../../../core/config/size_config.dart';
+import '../../../../config/size_config.dart';
 
 class UserInformationBodyItem extends StatelessWidget {
-  const UserInformationBodyItem({Key? key, required this.label, this.maxLines, required this.controller,}) : super(key: key);
+  const UserInformationBodyItem({
+    Key? key,
+    required this.label,
+    this.maxLines,
+    required this.controller,
+  }) : super(key: key);
   final String label;
   final int? maxLines;
   final TextEditingController controller;

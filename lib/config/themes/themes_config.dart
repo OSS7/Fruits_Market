@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../constant/colors.dart';
+import '../../core/constant/colors.dart';
 import 'theme_provider.dart';
 
 class MyThemeData {
@@ -21,8 +21,8 @@ class MyThemeData {
       onSecondary: Colors.white,
       // onPrimaryContainer: customBlack,
     );
-    final themeProvider = ThemeProvider();
-    themeProvider.darkTheme = isDark;
+    // final themeProvider = ThemeProvider();
+    // themeProvider.darkTheme = isDark;
 
     return ThemeData(
       colorScheme: isDark ? _darkScheme : _lightScheme,
@@ -46,7 +46,7 @@ class MyThemeData {
           colorScheme:
               isDark ? const ColorScheme.dark() : const ColorScheme.light()),
       fontFamily: GoogleFonts.poppins().fontFamily,
-      // textTheme:   ? GoogleFonts.ibmPlexSansArabicTextTheme() : GoogleFonts.interTextTheme(),
+      textTheme: GoogleFonts.poppinsTextTheme(),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xffB12025),
         elevation: 0.0,

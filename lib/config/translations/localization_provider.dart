@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/services/local_storage.dart';
+import '../../core/utils/services/local_storage.dart';
 
 ///a provider class that responsible for localization direction.
 ///like if a widget was in left of screen if the language is arabic, and it will be in the right if the language is english.

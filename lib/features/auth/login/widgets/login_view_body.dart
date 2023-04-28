@@ -7,7 +7,7 @@ import 'package:fruits_market/core/widgets/custome_buttons.dart';
 import 'package:fruits_market/features/auth/user_information/user_informations_view.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/config/size_config.dart';
+import '../../../../config/size_config.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({Key? key}) : super(key: key);

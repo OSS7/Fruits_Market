@@ -4,7 +4,7 @@ import 'package:fruits_market/features/auth/user_information/widgets/user_inform
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../../core/config/size_config.dart';
+import '../../../../config/size_config.dart';
 
 class UserInformationBody extends StatefulWidget {
   const UserInformationBody({Key? key}) : super(key: key);
@@ -46,11 +46,9 @@ class _UserInformationBodyState extends State<UserInformationBody> {
             ),
             SizedBox(
               width: SizeConfig.defaultSize! * 13,
-              child:  CustomGeneralButton(
+              child: CustomGeneralButton(
                 text: 'Login',
-                onPress: (){
-
-                },
+                onPress: () {},
               ),
             ),
             const Expanded(

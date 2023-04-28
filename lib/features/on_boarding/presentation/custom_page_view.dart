@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/features/on_boarding/widgets/page_view_item.dart';
 import 'package:get/get.dart';
 
-import '../../../core/config/translations/strings.dart';
+import '../../../config/translations/strings.dart';
 import '../../../core/constant/assets_paths.dart';
 
 class CustomPageView extends StatelessWidget {

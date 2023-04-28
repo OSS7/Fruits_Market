@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_market/core/constant/colors.dart';
 
-import '../config/size_config.dart';
+import '../../config/size_config.dart';
 
 class CustomGeneralButton extends StatelessWidget {
   final String? text;
   final Function()? onPress;
-  const CustomGeneralButton({Key? key, this.text, this.onPress}) : super(key: key);
+  const CustomGeneralButton({Key? key, this.text, this.onPress})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,13 @@ class CustomGeneralButton extends StatelessWidget {
 }
 
 class CustomButtonWithIcon extends StatelessWidget {
-  const CustomButtonWithIcon({Key? key, this.text, this.icon, this.iconColor, this.onPress}) : super(key: key);
-final String? text;
-final IconData? icon;
-final Color? iconColor;
-final Function()? onPress;
+  const CustomButtonWithIcon(
+      {Key? key, this.text, this.icon, this.iconColor, this.onPress})
+      : super(key: key);
+  final String? text;
+  final IconData? icon;
+  final Color? iconColor;
+  final Function()? onPress;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -50,9 +53,7 @@ final Function()? onPress;
         height: 50,
         width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey.shade800
-          ),
+          border: Border.all(color: Colors.grey.shade800),
           color: Colors.transparent,
           borderRadius: const BorderRadius.all(
             Radius.circular(8),
@@ -61,11 +62,14 @@ final Function()? onPress;
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(text!,style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold
-            ),),
-            Icon(icon!,color: iconColor ,),
+            Text(
+              text!,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Icon(
+              icon!,
+              color: iconColor,
+            ),
           ],
         ),
       ),

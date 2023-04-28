@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../config/translations/localization_services.dart';
+import '../../../config/translations/localization_services.dart';
 
 class LocalStorage {
   // get storage
@@ -20,6 +20,7 @@ class LocalStorage {
     await GetStorage.init();
     _storage = GetStorage();
   }
+
   final box = GetStorage();
 
   /// set theme current type as light theme

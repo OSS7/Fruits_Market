@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/icons_paths.dart';
+import '../../../../core/widgets/custom_icon.dart';
+
 class FruitsSearchBoxField extends StatefulWidget {
   FruitsSearchBoxField({
     this.onChange,
@@ -71,8 +74,8 @@ class _FruitsSearchBoxFieldState extends State<FruitsSearchBoxField> {
             width: 40,
             child: InkWell(
               onTap: widget.onSubmit,
-              child: const Icon(
-                Icons.search_outlined,
+              child: CustomIcon(
+                MyIcons.search,
                 color: Colors.black,
                 size: 25,
               ),

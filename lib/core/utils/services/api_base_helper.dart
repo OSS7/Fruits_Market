@@ -5,7 +5,6 @@ import 'dart:io';
 // import 'package:dio/dio.dart';
 // import 'package:http/http.dart' as http;
 
-import '../../config/translations/localization_provider.dart';
 import 'api_exceptions.dart';
 import 'local_storage.dart';
 
