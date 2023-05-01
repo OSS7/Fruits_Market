@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 
-class FeatureBody extends StatelessWidget {
-  const FeatureBody({Key? key}) : super(key: key);
+import 'fruit_details_app_bar.dart';
+import 'fruit_details_fruit_data.dart';
+import 'fruit_details_fruit_image.dart';
+
+class FruitDetailsBody extends StatelessWidget {
+  const FruitDetailsBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Stack(
+          children: const [
+            FruitDetailsFruitImage(),
+            FruitDetailsAppBar(),
+          ],
+        ),
+        Expanded(child: FruitDetailsFruitData()),
+        // Spacer(),
+      ],
+    );
   }
 }

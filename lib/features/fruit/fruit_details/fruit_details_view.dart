@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class FeatureScreen extends StatelessWidget {
-  const FeatureScreen({Key? key}) : super(key: key);
+import 'widgets/fruit_details_body.dart';
+
+class FruitDetailsView extends StatelessWidget {
+  const FruitDetailsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
-        child: Container(),
+        child: FruitDetailsBody(),
       ),
     );
   }
