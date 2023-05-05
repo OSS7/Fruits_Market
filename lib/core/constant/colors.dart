@@ -8,5 +8,5 @@ Color logoColor = Color(0xffFE9E34),
     infoColor = Color(0xff00838f),
     whiteColor = Colors.white,
     blackColor = Colors.black,
-    lightColor = Color(0xffF8FAFF),
+    lightColor = const Color(0xffF0F4F9),
     darkColor = Color(0xff0F2A67);

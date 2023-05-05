@@ -8,46 +8,47 @@ class FruitsAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-      decoration: const BoxDecoration(color: Colors.transparent),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              // width: 160,
-              height: 90,
-              child: Image.asset(
-                MyAssets.LOGO,
-                fit: BoxFit.cover,
+      height: 70,
+      margin: _appBarPadding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: 80  ,
+            child: Image.asset(
+              MyAssets.LOGO,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              border: _cartIconBorder,
+              color: whiteColor,
+              shape: BoxShape.circle,
+            ),
+            width: 50,
+            height: 50,
+            child: IconButton(
+              onPressed: () {
+                ///todo: go to cart screen.
+              },
+              icon: Icon(
+                Icons.shopping_cart_rounded,
+                size: 30,
+                color: logoColor,
+                // fit: BoxFit.cover,
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: secondaryColor.withOpacity(0.2), width: 0.1),
-                  color: whiteColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(50))),
-              width: 50,
-              height: 50,
-              child: IconButton(
-                onPressed: () {
-                  // Scaffold.of(context).openDrawer();
-                },
-                icon: Icon(
-                  Icons.shopping_cart_rounded,
-                  size: 30,
-                  color: logoColor,
-                  // fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
+
+const _appBarPadding = EdgeInsets.all(8);
+final _cartIconBorder = Border.all(
+  color: secondaryColor.withOpacity(0.2),
+  width: 0.1,
+);

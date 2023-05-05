@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'config/route_config.dart' as Routes;
+import 'config/themes/themes_config.dart';
 import 'core/constant/colors.dart';
 import 'core/constant/routes.dart';
 import 'core/utils/services/local_storage.dart';
@@ -12,21 +13,6 @@ void main() {
   runApp(FruitsMarket());
 }
 
-ThemeData _darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: Colors.amber,
-    buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.amber,
-      disabledColor: Colors.grey,
-    ));
-
-ThemeData _lightTheme = ThemeData(
-    brightness: Brightness.light,
-    primaryColor: Colors.blue,
-    buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.blue,
-      disabledColor: Colors.grey,
-    ));
 
 class FruitsMarket extends StatelessWidget {
   final RxBool _isLightTheme = false.obs;
@@ -34,11 +20,12 @@ class FruitsMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       getPages: Routes.getPages,
       initialRoute: MyRoutes.HOME,
       themeMode: ThemeMode.light,
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
+      theme: MyThemeData.myTheme(false, context),
+      // darkTheme: _darkTheme,
       home: const HomeScreen(),
     );
   }

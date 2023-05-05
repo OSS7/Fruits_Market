@@ -101,17 +101,17 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
           minHeight: 40,
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        fillColor: Color(0xffF0F4F9),
+        fillColor: lightColor,
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Color(0xffF0F4F9),
+            color: lightColor,
             width: 1,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: _textFieldBorderRadius,
           borderSide: BorderSide(
-            color: Color(0xffF0F4F9),
+            color: lightColor,
             width: 1,
           ),
         ),

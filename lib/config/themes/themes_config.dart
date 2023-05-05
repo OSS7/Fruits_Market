@@ -3,9 +3,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/constant/colors.dart';
-import 'theme_provider.dart';
 
 class MyThemeData {
+  static const _medium = FontWeight.w500;
+  static const _semiBold = FontWeight.w600;
+  static const _bold = FontWeight.w700;
+  static const _regular = FontWeight.w400;
+
   static ThemeData myTheme(bool isDark, BuildContext context) {
     var _lightScheme = ColorScheme.light(
       primary: Colors.white,
@@ -25,14 +29,11 @@ class MyThemeData {
     // themeProvider.darkTheme = isDark;
 
     return ThemeData(
-      colorScheme: isDark ? _darkScheme : _lightScheme,
-      // primarySwatch: Colors.grey,
-
-      // primaryColor: !isDark ? darkColor : lightColor,
-      // backgroundColor: isDark ? darkColor : const Color(0xffF5F5F5),
+      useMaterial3: true,
+      colorSchemeSeed: logoColor,
       indicatorColor:
           isDark ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
-      scaffoldBackgroundColor: Color(0xffF0F4F9),
+      scaffoldBackgroundColor: lightColor,
       hintColor: isDark ? const Color(0xff280C0B) : const Color(0xffEECED3),
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
@@ -46,13 +47,30 @@ class MyThemeData {
           colorScheme:
               isDark ? const ColorScheme.dark() : const ColorScheme.light()),
       fontFamily: GoogleFonts.poppins().fontFamily,
-      textTheme: GoogleFonts.poppinsTextTheme(),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xffB12025),
         elevation: 0.0,
       ),
       iconTheme:
           IconThemeData(color: isDark ? lightColor : darkColor, size: 30),
+      textTheme: TextTheme(
+        headlineMedium:
+            GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
+        bodySmall: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
+        headlineSmall: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
+        titleMedium:
+            GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
+        labelSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
+        bodyLarge: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
+        titleSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
+        bodyMedium:
+            GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
+        titleLarge: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
+        labelLarge:
+            GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+      ),
+
+      //   static const _regular = FontWeight.w400;
     );
   }
 }
@@ -135,15 +153,15 @@ class MyThemeData {
 //   static const _bold = FontWeight.w700;
 //
 //   static final TextTheme _textTheme = TextTheme(
-//     // headlineMedium: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
-//     // bodySmall: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
-//     // headlineSmall: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
-//     // titleMedium: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
-//     // labelSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
-//     // bodyLarge: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
-//     // titleSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
-//     // bodyMedium: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
-//     // titleLarge: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
-//     // labelLarge: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
+// headlineMedium: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 20.0),
+// bodySmall: GoogleFonts.oswald(fontWeight: _semiBold, fontSize: 16.0),
+// headlineSmall: GoogleFonts.oswald(fontWeight: _medium, fontSize: 16.0),
+// titleMedium: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 16.0),
+// labelSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 12.0),
+// bodyLarge: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 14.0),
+// titleSmall: GoogleFonts.montserrat(fontWeight: _medium, fontSize: 14.0),
+// bodyMedium: GoogleFonts.montserrat(fontWeight: _regular, fontSize: 16.0),
+// titleLarge: GoogleFonts.montserrat(fontWeight: _bold, fontSize: 16.0),
+// labelLarge: GoogleFonts.montserrat(fontWeight: _semiBold, fontSize: 14.0),
 //   );
 // }

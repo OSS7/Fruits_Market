@@ -12,12 +12,14 @@ class FruitDetailsBody extends StatelessWidget {
     return Column(
       children: [
         Stack(
-          children: const [
-            FruitDetailsFruitImage(),
+          children:  [
+            const FruitDetailsFruitImage(),
             FruitDetailsAppBar(),
           ],
         ),
-        Expanded(child: FruitDetailsFruitData()),
+        const Expanded(
+          child: FruitDetailsFruitData(),
+        ),
         // Spacer(),
       ],
     );

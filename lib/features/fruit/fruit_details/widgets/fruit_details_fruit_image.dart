@@ -8,12 +8,15 @@ class FruitDetailsFruitImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: context.screenHeight * 0.5,
-      color: lightColor,
-      child: Center(
-        child: Image.asset('assets/fruits/ananas.png'),
+    return Padding(
+      padding: const EdgeInsets.all(40.0),
+      child: Container(
+        width: double.infinity,
+        height: context.screenHeight * 0.5,
+        color: lightColor,
+        child: Center(
+          child: Image.asset('assets/fruits/ananas.png'),
+        ),
       ),
     );
   }

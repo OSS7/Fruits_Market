@@ -16,19 +16,29 @@ class FruitsBody extends StatelessWidget {
     SizeConfig().init(context);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const FruitsAppBar(),
-            FruitsSearchBoxField(
-              controller: TextEditingController(),
+      padding: _fruitsPadding,
+      child: Column(
+        children: [
+          const FruitsAppBar(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  FruitsSearchBoxField(
+                    controller: TextEditingController(),
+                  ),
+                  const FruitsTypeBar(),
+                  const FruitsGridView(), // Expanded(child: child)
+                ],
+              ),
             ),
-            const FruitsTypeBar(),
-            FruitsGridView(), // Expanded(child: child)
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
+
+const _fruitsPadding = EdgeInsets.symmetric(
+  horizontal: 8.0,
+);

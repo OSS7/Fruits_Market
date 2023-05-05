@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constant/icons_paths.dart';
-import '../../../../core/widgets/custom_icon.dart';
+import '../../../../core/constant/colors.dart';
+import 'fruits_search_box/fruits_search_box_prefix.dart';
+import 'fruits_search_box/fruits_search_box_suffix.dart';
 
 class FruitsSearchBoxField extends StatefulWidget {
-  FruitsSearchBoxField({
+  const FruitsSearchBoxField({
+    Key? key,
     this.onChange,
     this.onSubmit,
     this.controller,
-    this.autoFocus,
-  });
+  }) : super(key: key);
 
   final Function(String)? onChange;
   final Function()? onSubmit;
   final TextEditingController? controller;
-  final bool? autoFocus;
 
   @override
   State<FruitsSearchBoxField> createState() => _FruitsSearchBoxFieldState();
@@ -25,96 +25,40 @@ class _FruitsSearchBoxFieldState extends State<FruitsSearchBoxField> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: _searchBoxPadding,
       child: TextField(
-        autofocus: widget.autoFocus ?? false,
         onSubmitted: (value) {
-          if (widget.onSubmit != null) {
-            widget.onSubmit!();
-          }
+          widget.onSubmit;
         },
-        controller: widget.controller ?? controller,
-        onChanged: (value) {
-          if (widget.onChange != null) {
-            widget.onChange!(value);
-          }
-          setState(() {});
-        },
+        controller: controller,
         style: const TextStyle(fontSize: 13, color: Colors.black),
         decoration: InputDecoration(
-          suffixIcon: Container(
-            margin: const EdgeInsets.symmetric(
-              vertical: 5,
-            ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 3,
-              vertical: 3,
-            ),
-            width: 40,
-            child: InkWell(
-              onTap: widget.onSubmit,
-              child: const Icon(
-                Icons.filter_alt_outlined,
-                color: Colors.black,
-                size: 25,
-              ),
-            ),
-          ),
-          prefixIcon: Container(
-            margin: const EdgeInsets.symmetric(
-              vertical: 5,
-            ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 3,
-              vertical: 3,
-            ),
-            width: 40,
-            child: InkWell(
-              onTap: widget.onSubmit,
-              child: CustomIcon(
-                MyIcons.search,
-                color: Colors.black,
-                size: 25,
-              ),
-            ),
-          ),
+          suffixIcon: FruitsSearchBoxSuffix(onPress: widget.onSubmit),
+          prefixIcon: FruitsSearchBoxPrefix(onPress: widget.onSubmit),
           filled: true,
+          fillColor: const Color(0xffFFFFFF),
           hintText: 'Search',
           hintStyle: const TextStyle(
             fontSize: 12,
             color: Color(0xff949494),
           ),
-          constraints: const BoxConstraints(
-            maxHeight: 50,
-            minHeight: 40,
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          fillColor: const Color(0xffF0F4F9),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Color(0xffF0F4F9),
-              width: 1,
-            ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: _focusTextFieldBorderRadius,
+            borderSide: _textFieldBorder,
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: _textFieldBorderRadius,
-            borderSide: const BorderSide(
-              color: Color(0xffF0F4F9),
-              width: 1,
-            ),
+            borderSide: _textFieldBorder,
           ),
         ),
       ),
     );
   }
-}
 
-var _textFieldBorderRadius = const BorderRadius.all(
-  Radius.circular(
-    50,
-  ),
-);
+  final _textFieldBorder = BorderSide(color: lightColor, width: 1);
+  final _textFieldBorderRadius = const BorderRadius.all(Radius.circular(50));
+  final _focusTextFieldBorderRadius =
+      const BorderRadius.all(Radius.circular(20));
+  final _searchBoxPadding = const EdgeInsets.symmetric(horizontal: 8.0);
+}

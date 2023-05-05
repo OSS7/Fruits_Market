@@ -76,3 +76,38 @@ class CustomButtonWithIcon extends StatelessWidget {
     );
   }
 }
+
+class CustomCircleButton extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final VoidCallback onPressed;
+
+  const CustomCircleButton(
+      {Key? key,
+      required this.icon,
+      required this.color,
+      required this.onPressed})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: 25.0,
+        height: 25.0,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
+        ),
+        child: Center(
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 25.0,
+          ),
+        ),
+      ),
+    );
+  }
+}

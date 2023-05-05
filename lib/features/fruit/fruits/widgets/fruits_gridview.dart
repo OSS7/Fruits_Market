@@ -24,7 +24,11 @@ class _FruitsGridViewState extends State<FruitsGridView> {
     return SizedBox(
       child: StaggeredGrid.count(
         crossAxisCount: 2,
-        children: fruits.map((e) => FruitsItemCard(fruit: e)).toList(),
+        children: fruits
+            .map((e) => FruitsItemCard(
+                  fruit: e,
+                ))
+            .toList(),
       ),
     );
   }
