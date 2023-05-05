@@ -22,7 +22,7 @@ class FruitDetailsAppBar extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: () {
-                  // Scaffold.of(context).openDrawer();
+                  Navigator.pop(context);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios_rounded,

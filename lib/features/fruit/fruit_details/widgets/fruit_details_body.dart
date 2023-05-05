@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'fruit_details_app_bar.dart';
+import 'fruit_details_bottom.dart';
 import 'fruit_details_fruit_data.dart';
 import 'fruit_details_fruit_image.dart';
 
@@ -12,7 +13,7 @@ class FruitDetailsBody extends StatelessWidget {
     return Column(
       children: [
         Stack(
-          children:  [
+          children: [
             const FruitDetailsFruitImage(),
             FruitDetailsAppBar(),
           ],
@@ -21,6 +22,7 @@ class FruitDetailsBody extends StatelessWidget {
           child: FruitDetailsFruitData(),
         ),
         // Spacer(),
+        const FruitDetailsBottom(),
       ],
     );
   }

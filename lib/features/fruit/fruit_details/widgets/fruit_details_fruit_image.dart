@@ -12,7 +12,7 @@ class FruitDetailsFruitImage extends StatelessWidget {
       padding: const EdgeInsets.all(40.0),
       child: Container(
         width: double.infinity,
-        height: context.screenHeight * 0.5,
+        height: context.screenHeight * 0.32,
         color: lightColor,
         child: Center(
           child: Image.asset('assets/fruits/ananas.png'),

@@ -3,20 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/constant/colors.dart';
 
 import '../../../../core/widgets/custome_buttons.dart';
+import 'fruit_details_fruit_data/fruit_details_fruit_data_description.dart';
 
 class FruitDetailsFruitData extends StatelessWidget {
   const FruitDetailsFruitData({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-        decoration: BoxDecoration(
-          color: whiteColor,
-          borderRadius: _borderRadius,
-          boxShadow: [_boxShadow],
-        ),
+    return Container(
+      padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: _borderRadius,
+        boxShadow: [_boxShadow],
+      ),
+      child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
@@ -92,6 +93,7 @@ class FruitDetailsFruitData extends StatelessWidget {
                 ),
               ],
             ),
+            FruitDetailsFruitDataDescription(),
           ],
         ),
       ),
@@ -100,7 +102,7 @@ class FruitDetailsFruitData extends StatelessWidget {
 }
 
 final _boxShadow = BoxShadow(
-  color: Colors.black45,
+  color: Colors.grey.withOpacity(0.3),
   blurRadius: 20.0,
   spreadRadius: 0.005,
   offset: Offset.fromDirection(
