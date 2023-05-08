@@ -6,13 +6,13 @@ import 'config/themes/themes_config.dart';
 import 'core/constant/colors.dart';
 import 'core/constant/routes.dart';
 import 'core/utils/services/local_storage.dart';
+import 'features/cart/cart_view.dart';
 import 'features/fruit/fruits/fruits_view.dart';
 
 void main() {
   LocalStorage.init();
   runApp(FruitsMarket());
 }
-
 
 class FruitsMarket extends StatelessWidget {
   final RxBool _isLightTheme = false.obs;
@@ -42,9 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List pages = [
     FruitsView(),
-    Center(
-      child: Text('cart'),
-    ),
+    CartView(),
     Center(
       child: Text('setting'),
     ),
