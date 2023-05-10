@@ -19,6 +19,7 @@ class _FruitsTypeBarState extends State<FruitsTypeBar> {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {

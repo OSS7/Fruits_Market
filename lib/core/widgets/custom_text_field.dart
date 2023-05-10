@@ -85,7 +85,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
             onTap: widget.onSubmit,
             child: Icon(
               Icons.search_outlined,
-              color: Colors.black,
+              color: blackColor,
               size: 25,
             ),
           ),

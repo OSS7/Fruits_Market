@@ -73,14 +73,14 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         gradient: LinearGradient(
-                          colors: [Colors.orange[800]!, Colors.orange[500]!],
+                          colors: [primaryColor, primaryColor.withOpacity(0.5)],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                         ),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.add,
-                        color: Colors.white,
+                        color: whiteColor,
                       ),
                     ),
                   )
@@ -100,7 +100,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
       color: Colors.grey.withOpacity(0.8),
       fontWeight: FontWeight.bold);
   final TextStyle _priceStyle =
-      TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: logoColor);
+      TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: primaryColor);
   final _boxShadow = BoxShadow(
     color: Colors.black12.withOpacity(0.05),
     blurRadius: 20.0, // soften the shadow

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/constant/colors.dart';
 import '../../../../../core/constant/icons_paths.dart';
 import '../../../../../core/widgets/custom_icon.dart';
 
@@ -22,7 +23,7 @@ class FruitsSearchBoxPrefix extends StatelessWidget {
         onTap: onPress,
         child: CustomIcon(
           MyIcons.search,
-          color: Colors.black,
+          color: blackColor,
           size: 25,
         ),
       ),

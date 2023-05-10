@@ -25,9 +25,9 @@ class CustomGeneralButton extends StatelessWidget {
         child: Center(
           child: Text(
             text!,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
-              color: Colors.white,
+              color: whiteColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -103,7 +103,7 @@ class CustomCircleButton extends StatelessWidget {
         child: Center(
           child: Icon(
             icon,
-            color: Colors.white,
+            color: whiteColor,
             size: 25.0,
           ),
         ),

@@ -48,7 +48,7 @@ class FruitDetailsAppBar extends StatelessWidget {
               icon: Icon(
                 Icons.favorite_border_sharp,
                 size: 30,
-                color: logoColor,
+                color: primaryColor,
                 // fit: BoxFit.cover,
               ),
             ),

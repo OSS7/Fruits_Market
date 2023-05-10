@@ -25,11 +25,11 @@ class FruitDetailsBottom extends StatelessWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
               gradient: LinearGradient(
-                colors: [Colors.orange[800]!, Colors.orange[500]!],
+                colors: [primaryColor, primaryColor.withOpacity(0.5)],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
               ),

@@ -35,7 +35,7 @@ class _FruitDetailsFruitDataDescriptionState
           },
           child: Text(
             _isExpanded ? 'Read less' : 'Read more',
-            style: TextStyle(color: logoColor),
+            style: TextStyle(color: primaryColor),
           ),
         ),
       ],

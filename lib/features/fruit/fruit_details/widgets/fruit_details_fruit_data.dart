@@ -69,7 +69,7 @@ class FruitDetailsFruitData extends StatelessWidget {
                         children: [
                           CustomCircleButton(
                             icon: Icons.add,
-                            color: Colors.orange,
+                            color: primaryColor,
                             onPressed: () {
                               // handle plus button press
                             },

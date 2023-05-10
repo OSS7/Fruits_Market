@@ -56,7 +56,7 @@ class CustomAppBar extends StatelessWidget {
                 icon: CustomIcon(
                   MyIcons.notification,
                   size: 80,
-                  color: logoColor,
+                  color: primaryColor,
                   // fit: BoxFit.cover,
                 ),
               ),

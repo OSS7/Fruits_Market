@@ -19,6 +19,7 @@ class FruitsAppBar extends StatelessWidget {
             child: Image.asset(
               MyAssets.LOGO,
               fit: BoxFit.cover,
+              color: darkColor,
             ),
           ),
           Container(
@@ -36,7 +37,7 @@ class FruitsAppBar extends StatelessWidget {
               icon: Icon(
                 Icons.shopping_cart_rounded,
                 size: 30,
-                color: logoColor,
+                color: primaryColor,
                 // fit: BoxFit.cover,
               ),
             ),

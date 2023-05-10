@@ -72,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Settings',
           ),
         ],
+        backgroundColor: whiteColor,
         currentIndex: _selectedIndex, //New
         onTap: _onItemTapped,
         selectedItemColor: primaryColor,

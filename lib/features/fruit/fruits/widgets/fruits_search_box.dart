@@ -32,7 +32,7 @@ class _FruitsSearchBoxFieldState extends State<FruitsSearchBoxField> {
           widget.onSubmit;
         },
         controller: controller,
-        style: const TextStyle(fontSize: 13, color: Colors.black),
+        style:  TextStyle(fontSize: 13, color: blackColor),
         decoration: InputDecoration(
           suffixIcon: FruitsSearchBoxSuffix(onPress: widget.onSubmit),
           prefixIcon: FruitsSearchBoxPrefix(onPress: widget.onSubmit),

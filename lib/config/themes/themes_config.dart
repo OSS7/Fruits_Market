@@ -30,7 +30,7 @@ class MyThemeData {
 
     return ThemeData(
       useMaterial3: true,
-      colorSchemeSeed: logoColor,
+      colorSchemeSeed: primaryColor,
       indicatorColor:
           isDark ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
       scaffoldBackgroundColor: lightColor,
