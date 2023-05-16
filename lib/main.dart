@@ -8,6 +8,7 @@ import 'core/constant/routes.dart';
 import 'core/utils/services/local_storage.dart';
 import 'features/cart/cart_view.dart';
 import 'features/fruit/fruits/fruits_view.dart';
+import 'features/profile/profile_view.dart';
 
 void main() {
   LocalStorage.init();
@@ -40,12 +41,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  List pages = [
+  List pages = const [
     FruitsView(),
     CartView(),
-    Center(
-      child: Text('setting'),
-    ),
+    ProfileView(),
   ];
   void _onItemTapped(int index) {
     setState(() {

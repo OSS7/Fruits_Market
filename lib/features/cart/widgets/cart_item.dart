@@ -20,9 +20,7 @@ class CartItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: whiteColor,
         borderRadius: _borderRadius,
-        boxShadow: [
-          _boxShadow
-        ],
+        boxShadow: [_boxShadow],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,7 +41,7 @@ class CartItem extends StatelessWidget {
                 style: _nameStyle,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2,horizontal: 8),
+                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
                 decoration: BoxDecoration(
                     color: Colors.blue.withOpacity(0.1),
                     borderRadius: BorderRadius.all(
@@ -117,3 +115,5 @@ final _boxShadow = BoxShadow(
 const _borderRadius = BorderRadius.all(
   Radius.circular(25),
 );
+
+///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
