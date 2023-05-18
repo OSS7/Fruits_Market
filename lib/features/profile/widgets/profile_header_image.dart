@@ -13,12 +13,12 @@ class ProfileHeaderImage extends StatefulWidget {
 }
 
 class _ProfileHeaderImageState extends State<ProfileHeaderImage> {
-  int randomId = Random().nextInt(250);
   @override
   Widget build(BuildContext context) {
+    int randomId = Random().nextInt(100);
     return Column(
       children: [
-        VerticalSpacer(2),
+        const VerticalSpacer(2),
         DottedBorder(
           color: primaryColor,
           borderType: BorderType.Circle,
@@ -40,24 +40,29 @@ class _ProfileHeaderImageState extends State<ProfileHeaderImage> {
                     height: 200.0,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
-                        'https://i.pravatar.cc/300?img=${randomId}',
+                        'https://i.pravatar.cc/300?img=$randomId',
                       ),
                     ),
                   ),
                   Positioned(
                     bottom: 0.0,
                     right: 0.0,
-                    child: Container(
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: primaryColor,
-                          border: Border.all(color: whiteColor, width: 5)),
-                      child: const Icon(
-                        Icons.edit,
-                        size: 18,
-                        color: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {});
+                      },
+                      child: Container(
+                        width: 50.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: primaryColor,
+                            border: Border.all(color: whiteColor, width: 5)),
+                        child: const Icon(
+                          Icons.edit,
+                          size: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -76,12 +81,12 @@ double colorWidth(double radius, int statusCount, double separation) {
 }
 
 double separation(int statusCount) {
-  if (statusCount <= 20)
+  if (statusCount <= 20) {
     return 3.0;
-  else if (statusCount <= 30)
+  } else if (statusCount <= 30) {
     return 1.8;
-  else if (statusCount <= 60)
+  } else if (statusCount <= 60) {
     return 1.0;
-  else
-    return 0.3;
+  }
+  return 0.3;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import 'config/route_config.dart' as Routes;
@@ -6,6 +7,7 @@ import 'config/themes/themes_config.dart';
 import 'core/constant/colors.dart';
 import 'core/constant/routes.dart';
 import 'core/utils/services/local_storage.dart';
+import 'features/cart/bloc/cart_bloc.dart';
 import 'features/cart/cart_view.dart';
 import 'features/fruit/fruits/fruits_view.dart';
 import 'features/profile/profile_view.dart';
@@ -20,14 +22,17 @@ class FruitsMarket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      getPages: Routes.getPages,
-      initialRoute: MyRoutes.HOME,
-      themeMode: ThemeMode.light,
-      theme: MyThemeData.myTheme(false, context),
-      // darkTheme: _darkTheme,
-      home: const HomeScreen(),
+    return BlocProvider(
+      create: (context) => CartBloc(),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        getPages: Routes.getPages,
+        initialRoute: MyRoutes.HOME,
+        themeMode: ThemeMode.light,
+        theme: MyThemeData.myTheme(false, context),
+        // darkTheme: _darkTheme,
+        home: const HomeScreen(),
+      ),
     );
   }
 }
@@ -46,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
     CartView(),
     ProfileView(),
   ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -72,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         backgroundColor: whiteColor,
-        currentIndex: _selectedIndex, //New
+        currentIndex: _selectedIndex,
+        //New
         onTap: _onItemTapped,
         selectedItemColor: primaryColor,
         unselectedItemColor: darkColor.withOpacity(0.2),

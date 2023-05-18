@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../../config/size_config.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/routes.dart';
+import '../models/fruit_model.dart';
 
 class FruitsItemCard extends StatefulWidget {
-  final String fruit;
+  final FruitModel fruit;
   const FruitsItemCard({Key? key, required this.fruit}) : super(key: key);
 
   @override
@@ -22,7 +25,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
       },
       child: Container(
         height: SizeConfig.defaultSize! * 26,
-      margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
             boxShadow: [_boxShadow],
@@ -36,7 +39,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
           children: [
             Expanded(
               child: Image.asset(
-                'assets/fruits/${widget.fruit.toLowerCase()}.png',
+                'assets/fruits/${widget.fruit.name.toLowerCase()}.png',
                 fit: BoxFit.contain,
               ),
             ),
@@ -52,22 +55,26 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.fruit,
+                          widget.fruit.name,
                           style: _nameStyle,
                         ),
                         Text(
-                          'Col 50',
+                          'Col ${widget.fruit.col}',
                           style: _colStyle,
                         ),
                         Text(
-                          '\$14.25',
+                          '\$${widget.fruit.price}',
                           style: _priceStyle,
                         ),
                       ],
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context
+                          .read<CartBloc>()
+                          .add(AddToCart(fruit: widget.fruit));
+                    },
                     child: Container(
                       width: 35,
                       decoration: BoxDecoration(

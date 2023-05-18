@@ -1,12 +1,16 @@
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/fruit/fruits/models/fruit_model.dart';
 
 import '../../../core/constant/colors.dart';
+import '../bloc/cart_bloc.dart';
 
 class CartItem extends StatelessWidget {
-  final String? name;
+  final FruitModel? fruit;
   final int? quantity;
-  const CartItem({Key? key, this.name, this.quantity}) : super(key: key);
+
+  const CartItem({Key? key, this.quantity, this.fruit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,8 @@ class CartItem extends StatelessWidget {
         children: [
           SizedBox(
             width: context.screenWidth * 0.2,
-            child: Image.asset('assets/fruits/${name?.toLowerCase()}.png'),
+            child:
+                Image.asset('assets/fruits/${fruit?.name.toLowerCase()}.png'),
           ),
           const SizedBox(
             width: 20,
@@ -37,7 +42,7 @@ class CartItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                name ?? '',
+                fruit?.name ?? '',
                 style: _nameStyle,
               ),
               Container(
@@ -68,13 +73,21 @@ class CartItem extends StatelessWidget {
                       Radius.circular(15),
                     ),
                   ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.close,
-                      color: Colors.grey,
-                      size: 15,
-                    ),
+                  child: BlocBuilder<CartBloc, CartState>(
+                    builder: (context, state) {
+                      return IconButton(
+                        onPressed: () {
+                          context
+                              .read<CartBloc>()
+                              .add(RemoveFromCart(id: fruit?.id ?? ''));
+                        },
+                        icon: const Icon(
+                          Icons.close,
+                          color: Colors.grey,
+                          size: 15,
+                        ),
+                      );
+                    },
                   ),
                 ),
                 Text(

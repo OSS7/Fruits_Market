@@ -6,7 +6,9 @@ class ProfileCustomButton extends StatelessWidget {
   final IconData? icon;
   final String? title;
   final Color? color;
-  const ProfileCustomButton({Key? key, this.icon, this.title, this.color})
+  final Function()? onTap;
+  const ProfileCustomButton(
+      {Key? key, this.icon, this.title, this.color, this.onTap})
       : super(key: key);
 
   @override
@@ -37,9 +39,7 @@ class ProfileCustomButton extends StatelessWidget {
           Icons.arrow_forward_ios,
           size: 22,
         ),
-        onTap: () {
-          // do something when the list tile is pressed
-        },
+        onTap: onTap,
       ),
     );
   }
