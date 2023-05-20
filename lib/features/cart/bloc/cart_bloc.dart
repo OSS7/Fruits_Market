@@ -17,7 +17,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         if (cart
             .where((element) => element.fruit.id == event.fruit.id)
             .isNotEmpty) {
-          cart.firstWhere((element) => element.fruit == event.fruit).quantity++;
+          cart
+              .firstWhere((element) => element.fruit.id == event.fruit.id)
+              .quantity++;
         } else {
           cart = [...cart, CartModel(fruit: event.fruit, quantity: 1)];
         }
@@ -25,6 +27,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       }
       if (event is RemoveFromCart) {
         cart.removeWhere((element) => element.fruit.id == event.id);
+        emit(CartUpdate(cart: cart));
+      }
+      if (event is IncreaseQuantityCart) {
+        cart.firstWhere((element) => element.fruit.id == event.id).quantity--;
+        emit(CartUpdate(cart: cart));
+      }
+      if (event is ClearCart) {
+        cart.clear();
         emit(CartUpdate(cart: cart));
       }
     });

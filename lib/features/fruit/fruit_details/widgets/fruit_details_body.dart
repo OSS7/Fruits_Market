@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_market/features/fruit/fruits/widgets/fruits_gridview.dart';
+import 'package:get/get.dart';
 
+import '../../fruits/models/fruit_model.dart';
 import 'fruit_details_app_bar.dart';
 import 'fruit_details_bottom.dart';
 import 'fruit_details_fruit_data.dart';
@@ -10,19 +13,29 @@ class FruitDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final arg = Get.arguments;
+    final id = arg[0];
+    FruitModel fruit = fruits.firstWhere((element) => element.id == id);
+
     return Column(
       children: [
         Stack(
           children: [
-            const FruitDetailsFruitImage(),
+            FruitDetailsFruitImage(
+              image: fruit.imageUrl,
+            ),
             FruitDetailsAppBar(),
           ],
         ),
-        const Expanded(
-          child: FruitDetailsFruitData(),
+        Expanded(
+          child: FruitDetailsFruitData(
+            fruit: fruit,
+          ),
         ),
         // Spacer(),
-        const FruitDetailsBottom(),
+        FruitDetailsBottom(
+          price: fruit.price,
+        ),
       ],
     );
   }

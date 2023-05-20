@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
+import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
 
 import '../../../core/constant/colors.dart';
 
@@ -17,15 +20,30 @@ class CartFooter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Column(
+          Column(
             children: [
               Text(
                 'total price',
                 style: TextStyle(fontSize: 12),
               ),
-              Text(
-                '\$63.25',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  if (state is CartUpdate) {
+                    double total = 0;
+                    state.cart.forEach((element) {
+                      total += element.quantity * element.fruit.price;
+                    });
+                    return Text(
+                      '\$${total.toStringAsFixed(2)}',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                    );
+                  }
+                  return Text(
+                    '\$ 0',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                  );
+                },
               ),
             ],
           ),
@@ -46,7 +64,9 @@ class CartFooter extends StatelessWidget {
               ),
             ),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<CartBloc>().add(ClearCart());
+              },
               child: Row(
                 children: [
                   Text(

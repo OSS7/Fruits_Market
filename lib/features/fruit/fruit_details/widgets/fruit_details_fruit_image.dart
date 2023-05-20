@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/constant/colors.dart';
 
 class FruitDetailsFruitImage extends StatelessWidget {
-  const FruitDetailsFruitImage({Key? key}) : super(key: key);
+  final String image;
+  const FruitDetailsFruitImage({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class FruitDetailsFruitImage extends StatelessWidget {
         height: context.screenHeight * 0.32,
         color: lightColor,
         child: Center(
-          child: Image.asset('assets/fruits/ananas.png'),
+          child: Image.asset(image),
         ),
       ),
     );

@@ -21,7 +21,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed(MyRoutes.FRUIT_DETAILS);
+        Get.toNamed(MyRoutes.FRUIT_DETAILS, arguments: [widget.fruit.id]);
       },
       child: Container(
         height: SizeConfig.defaultSize! * 26,
@@ -39,7 +39,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
           children: [
             Expanded(
               child: Image.asset(
-                'assets/fruits/${widget.fruit.name.toLowerCase()}.png',
+                widget.fruit.imageUrl,
                 fit: BoxFit.contain,
               ),
             ),
@@ -59,7 +59,7 @@ class _FruitsItemCardState extends State<FruitsItemCard> {
                           style: _nameStyle,
                         ),
                         Text(
-                          'Col ${widget.fruit.col}',
+                          'Sugar ${widget.fruit.sugarPercentage}',
                           style: _colStyle,
                         ),
                         Text(

@@ -31,8 +31,7 @@ class CartItem extends StatelessWidget {
         children: [
           SizedBox(
             width: context.screenWidth * 0.2,
-            child:
-                Image.asset('assets/fruits/${fruit?.name.toLowerCase()}.png'),
+            child: Image.asset(fruit?.imageUrl ?? ''),
           ),
           const SizedBox(
             width: 20,
@@ -91,7 +90,7 @@ class CartItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '\$${quantity! * 3}',
+                  '\$${(quantity! * (fruit?.price ?? 0)).toStringAsFixed(2)}',
                   style: _priceStyle,
                 ),
               ],

@@ -1,12 +1,21 @@
 import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_market/core/constant/colors.dart';
+import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
+import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
+import 'package:fruits_market/features/cart/models/cart_model.dart';
+import 'package:fruits_market/features/fruit/fruits/models/fruit_model.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/widgets/custome_buttons.dart';
 import 'fruit_details_fruit_data/fruit_details_fruit_data_description.dart';
 
 class FruitDetailsFruitData extends StatelessWidget {
-  const FruitDetailsFruitData({Key? key}) : super(key: key);
+  final FruitModel fruit;
+
+  const FruitDetailsFruitData({Key? key, required this.fruit})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +41,18 @@ class FruitDetailsFruitData extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    RowIcon(
+                  children: [
+                    const RowIcon(
                       title: '4.0',
                       icon: Icons.star,
                       color: Colors.yellow,
                     ),
                     RowIcon(
-                      title: '80 cal',
+                      title: '${fruit.sugarPercentage} sug',
                       icon: Icons.local_fire_department_outlined,
                       color: Colors.red,
                     ),
-                    RowIcon(
+                    const RowIcon(
                       title: 'Fri 8 dec',
                       icon: Icons.cable_rounded,
                       color: Colors.red,
@@ -56,9 +65,9 @@ class FruitDetailsFruitData extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Text(
-                        'Anans',
+                        fruit.name,
                         style: _fruitTitle,
                       ),
                     ),
@@ -71,18 +80,44 @@ class FruitDetailsFruitData extends StatelessWidget {
                             icon: Icons.add,
                             color: primaryColor,
                             onPressed: () {
-                              // handle plus button press
+                              context
+                                  .read<CartBloc>()
+                                  .add(AddToCart(fruit: fruit));
                             },
                           ),
-                          const Text(
-                            '1 Kg',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
+                          BlocBuilder<CartBloc, CartState>(
+                            builder: (context, state) {
+                              if (state is CartUpdate) {
+                                final fruitCartItem = state.cart
+                                    .firstWhereOrNull(
+                                        (item) => item.fruit.id == fruit.id);
+                                final fruitQuantity =
+                                    fruitCartItem?.quantity ?? 0;
+
+                                return Text(
+                                  '$fruitQuantity Kg',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                );
+                              }
+                              return Text(
+                                '0 Kg',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              );
+                            },
                           ),
                           CustomCircleButton(
                             icon: Icons.remove,
                             color: Colors.grey,
                             onPressed: () {
+                              context
+                                  .read<CartBloc>()
+                                  .add(IncreaseQuantityCart(id: fruit.id));
                               // handle minus button press
                             },
                           ),
@@ -93,7 +128,9 @@ class FruitDetailsFruitData extends StatelessWidget {
                 ),
               ],
             ),
-            FruitDetailsFruitDataDescription(),
+            FruitDetailsFruitDataDescription(
+              description: fruit.description,
+            ),
           ],
         ),
       ),
@@ -123,6 +160,7 @@ class RowIcon extends StatelessWidget {
   final String? title;
   final IconData? icon;
   final Color? color;
+
   const RowIcon({Key? key, this.title, this.icon, this.color})
       : super(key: key);
 

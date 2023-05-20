@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fruits_market/core/constant/colors.dart';
 
 class FruitDetailsBottom extends StatelessWidget {
-  const FruitDetailsBottom({Key? key}) : super(key: key);
+  final double price;
+  const FruitDetailsBottom({Key? key, required this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class FruitDetailsBottom extends StatelessWidget {
                 style: TextStyle(color: Colors.grey, fontSize: 8),
               ),
               Text(
-                '18.25\$',
+                '${price}\$',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               )
             ],

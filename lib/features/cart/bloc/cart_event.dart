@@ -14,3 +14,13 @@ class RemoveFromCart extends CartEvent {
 
   RemoveFromCart({required this.id});
 }
+
+class IncreaseQuantityCart extends CartEvent {
+  final String id;
+
+  IncreaseQuantityCart({required this.id});
+}
+
+class ClearCart extends CartEvent {
+  ClearCart();
+}
