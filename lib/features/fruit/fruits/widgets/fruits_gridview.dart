@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:fruits_market/features/fruit/fruits/bloc/fruits_bloc.dart';
 
+import '../models/fruit_model.dart';
 import 'fruits_item_card.dart';
 
 class FruitsGridView extends StatefulWidget {
@@ -15,55 +16,36 @@ class FruitsGridView extends StatefulWidget {
 }
 
 class _FruitsGridViewState extends State<FruitsGridView> {
+  int opacityValue = 0;
+
   @override
   Widget build(BuildContext context) {
     final fruits = context.read<FruitsBloc>().fruits;
 
-    return BlocBuilder<FruitsBloc, FruitsState>(
-      builder: (context, state) {
-        if (state is FavoriteFruitsUpdate) {
+    return AnimatedOpacity(
+      duration: const Duration(seconds: 2),
+      opacity: opacityValue == 0 ? 1 : 0,
+      child: BlocBuilder<FruitsBloc, FruitsState>(
+        builder: (context, state) {
+          List<FruitModel> displayedFruits = [];
+
+          if (state is FavoriteFruitsUpdate && widget.isSaved) {
+            displayedFruits = state.fruits;
+          } else if (state is AllFruitsUpdate && !widget.isSaved) {
+            displayedFruits = state.fruits;
+          } else if (!widget.isSaved) {
+            displayedFruits = fruits;
+          }
+
           return SizedBox(
             child: StaggeredGrid.count(
               crossAxisCount: 2,
-              children: widget.isSaved
-                  ? state.fruits
-                      .map((e) => FruitsItemCard(
-                            fruit: e,
-                          ))
-                      .toList()
-                  : fruits
-                      .map((e) => FruitsItemCard(
-                            fruit: e,
-                          ))
-                      .toList(),
+              children:
+                  displayedFruits.map((e) => FruitsItemCard(fruit: e)).toList(),
             ),
           );
-        }
-        if (state is AllFruitsUpdate) {
-          return SizedBox(
-            child: StaggeredGrid.count(
-              crossAxisCount: 2,
-              children: state.fruits
-                  .map((e) => FruitsItemCard(
-                        fruit: e,
-                      ))
-                  .toList(),
-            ),
-          );
-        }
-        return SizedBox(
-          child: StaggeredGrid.count(
-            crossAxisCount: 2,
-            children: widget.isSaved
-                ? []
-                : fruits
-                    .map((e) => FruitsItemCard(
-                          fruit: e,
-                        ))
-                    .toList(),
-          ),
-        );
-      },
+        },
+      ),
     );
   }
 }

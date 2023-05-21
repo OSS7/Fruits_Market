@@ -40,7 +40,7 @@ class _ProfileHeaderImageState extends State<ProfileHeaderImage> {
                     height: 200.0,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
-                        'https://i.pravatar.cc/300?img=$randomId',
+                        'https://i.pravatar.cc/300?img=58',
                       ),
                     ),
                   ),
