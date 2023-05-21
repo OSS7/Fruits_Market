@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/fruit/fruits/bloc/fruits_bloc.dart';
 import 'package:get/get.dart';
 
 import 'config/route_config.dart' as Routes;
@@ -18,12 +19,17 @@ void main() {
 }
 
 class FruitsMarket extends StatelessWidget {
-  final RxBool _isLightTheme = false.obs;
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CartBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => CartBloc(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => FruitsBloc(),
+        ),
+      ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         getPages: Routes.getPages,
@@ -79,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         backgroundColor: whiteColor,
         currentIndex: _selectedIndex,
-        //New
         onTap: _onItemTapped,
         selectedItemColor: primaryColor,
         unselectedItemColor: darkColor.withOpacity(0.2),

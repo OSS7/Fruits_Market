@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constant/colors.dart';
+import '../bloc/fruits_bloc.dart';
 import 'fruits_search_box/fruits_search_box_prefix.dart';
 import 'fruits_search_box/fruits_search_box_suffix.dart';
 
@@ -31,8 +33,11 @@ class _FruitsSearchBoxFieldState extends State<FruitsSearchBoxField> {
         onSubmitted: (value) {
           widget.onSubmit;
         },
+        onChanged: (value) {
+          context.read<FruitsBloc>().add(SearchForAllFruits(text: value));
+        },
         controller: controller,
-        style:  TextStyle(fontSize: 13, color: blackColor),
+        style: TextStyle(fontSize: 13, color: blackColor),
         decoration: InputDecoration(
           suffixIcon: FruitsSearchBoxSuffix(onPress: widget.onSubmit),
           prefixIcon: FruitsSearchBoxPrefix(onPress: widget.onSubmit),

@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_market/features/fruit/fruits/bloc/fruits_bloc.dart';
 
 import '../../../../core/constant/colors.dart';
+import '../../fruits/models/fruit_model.dart';
+import 'fruit_details_fruit_data/fruit_details_app_bar_saved_icon.dart';
 
-class FruitDetailsAppBar extends StatelessWidget {
-  FruitDetailsAppBar({Key? key}) : super(key: key);
+class FruitDetailsAppBar extends StatefulWidget {
+  final FruitModel fruit;
+
+  FruitDetailsAppBar({Key? key, required this.fruit}) : super(key: key);
+
+  @override
+  State<FruitDetailsAppBar> createState() => _FruitDetailsAppBarState();
+}
+
+class _FruitDetailsAppBarState extends State<FruitDetailsAppBar> {
+  bool isSaved = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +54,24 @@ class FruitDetailsAppBar extends StatelessWidget {
             ),
             width: 50,
             height: 50,
-            child: IconButton(
-              onPressed: () {
-                //todo: add the item to favorite.
+            child: BlocBuilder<FruitsBloc, FruitsState>(
+              builder: (context, state) {
+                if (state is FavoriteFruitsUpdate) {
+                  isSaved = state.fruits.contains(widget.fruit);
+                }
+                return IconButton(
+                  onPressed: () {
+                    context.read<FruitsBloc>().add(
+                          isSaved
+                              ? RemoveFromFavorite(id: widget.fruit.id)
+                              : AddToFavorite(fruit: widget.fruit),
+                        );
+                  },
+                  icon: FavoriteIcon(
+                    isFavorite: isSaved,
+                  ),
+                );
               },
-              icon: Icon(
-                Icons.favorite_border_sharp,
-                size: 30,
-                color: primaryColor,
-                // fit: BoxFit.cover,
-              ),
             ),
           ),
         ],

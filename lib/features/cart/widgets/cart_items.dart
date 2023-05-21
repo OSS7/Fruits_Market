@@ -27,7 +27,7 @@ class CartItems extends StatelessWidget {
             ),
           );
         }
-        return SizedBox();
+        return const Expanded(child: SizedBox());
       },
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -30,7 +28,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(CartUpdate(cart: cart));
       }
       if (event is IncreaseQuantityCart) {
-        cart.firstWhere((element) => element.fruit.id == event.id).quantity--;
+        final item = cart.firstWhere((element) => element.fruit.id == event.id);
+        if (item.quantity > 0) {
+          item.quantity--;
+        }
         emit(CartUpdate(cart: cart));
       }
       if (event is ClearCart) {

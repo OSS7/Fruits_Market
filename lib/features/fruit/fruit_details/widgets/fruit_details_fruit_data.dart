@@ -1,14 +1,8 @@
-import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_market/core/constant/colors.dart';
-import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
-import 'package:fruits_market/features/cart/bloc/cart_bloc.dart';
-import 'package:fruits_market/features/cart/models/cart_model.dart';
 import 'package:fruits_market/features/fruit/fruits/models/fruit_model.dart';
-import 'package:get/get.dart';
 
-import '../../../../core/widgets/custome_buttons.dart';
+import 'fruit_details_fruit_data/fruit_details_cart_buttons.dart';
 import 'fruit_details_fruit_data/fruit_details_fruit_data_description.dart';
 
 class FruitDetailsFruitData extends StatelessWidget {
@@ -71,59 +65,7 @@ class FruitDetailsFruitData extends StatelessWidget {
                         style: _fruitTitle,
                       ),
                     ),
-                    SizedBox(
-                      width: context.screenWidth * 0.25,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CustomCircleButton(
-                            icon: Icons.add,
-                            color: primaryColor,
-                            onPressed: () {
-                              context
-                                  .read<CartBloc>()
-                                  .add(AddToCart(fruit: fruit));
-                            },
-                          ),
-                          BlocBuilder<CartBloc, CartState>(
-                            builder: (context, state) {
-                              if (state is CartUpdate) {
-                                final fruitCartItem = state.cart
-                                    .firstWhereOrNull(
-                                        (item) => item.fruit.id == fruit.id);
-                                final fruitQuantity =
-                                    fruitCartItem?.quantity ?? 0;
-
-                                return Text(
-                                  '$fruitQuantity Kg',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                );
-                              }
-                              return Text(
-                                '0 Kg',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              );
-                            },
-                          ),
-                          CustomCircleButton(
-                            icon: Icons.remove,
-                            color: Colors.grey,
-                            onPressed: () {
-                              context
-                                  .read<CartBloc>()
-                                  .add(IncreaseQuantityCart(id: fruit.id));
-                              // handle minus button press
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                    FruitDetailsCartButtons(fruit: fruit),
                   ],
                 ),
               ],

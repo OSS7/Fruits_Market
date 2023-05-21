@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 import '../../../../core/constant/colors.dart';
 
 class FruitsTypeBar extends StatefulWidget {
-  const FruitsTypeBar({Key? key}) : super(key: key);
+  final Function() onTapSaved;
+  final Function() onTapAll;
+  const FruitsTypeBar(
+      {Key? key, required this.onTapSaved, required this.onTapAll})
+      : super(key: key);
 
   @override
   State<FruitsTypeBar> createState() => _FruitsTypeBarState();
 }
 
 class _FruitsTypeBarState extends State<FruitsTypeBar> {
+  List types = ['All', 'Favorites'];
   var _chosen = 0;
   @override
   Widget build(BuildContext context) {
@@ -19,12 +24,17 @@ class _FruitsTypeBarState extends State<FruitsTypeBar> {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
+        itemCount: types.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
               setState(() {
                 _chosen = index;
+                if (index == 1) {
+                  widget.onTapSaved();
+                } else {
+                  widget.onTapAll();
+                }
               });
             },
             child: Container(
@@ -38,7 +48,7 @@ class _FruitsTypeBarState extends State<FruitsTypeBar> {
                       style: index == _chosen ? _chosenStyle : _normalStyle,
                       duration: const Duration(milliseconds: 200),
                       child: Text(
-                        'Fruits $index',
+                        types[index],
                       )),
                   Visibility(
                     visible: _chosen == index,

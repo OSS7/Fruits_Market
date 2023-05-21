@@ -1,7 +1,7 @@
+import 'package:fruits_market/features/cart/cart_view.dart';
 import 'package:fruits_market/features/fruit/fruit_details/fruit_details_view.dart';
 import 'package:get/get.dart';
 
-import '../../features/on_boarding/presentation/custom_page_view.dart';
 import '../../features/on_boarding/presentation/on_boarding_view.dart';
 import '../core/constant/routes.dart';
 import '../features/fruit/fruits/fruits_view.dart';
@@ -28,6 +28,11 @@ List<GetPage> getPages = [
   GetPage(
     name: MyRoutes.FRUIT_DETAILS,
     page: () => const FruitDetailsView(),
+    transition: Transition.upToDown,
+  ),
+  GetPage(
+    name: MyRoutes.CART,
+    page: () => const CartView(),
     transition: Transition.upToDown,
   ),
 ];

@@ -2,6 +2,6 @@ class MyRoutes {
   static const String HOME = '/',
       FRUITS = '/Fruits',
       FRUIT_DETAILS = '/FruitsDetails',
-      CART = '/OnBoardingScreen',
+      CART = '/CartScreen',
       ON_BOARDING = '/OnBoardingScreen';
 }
