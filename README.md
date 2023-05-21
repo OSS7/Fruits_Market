@@ -1,16 +1,3 @@
-# fruits_market
+Explore the elegant world of fruit with our GitHub repository for a fruit app. Featuring BLoC as state management, this codebase offers a captivating onboarding experience, stunning splash screen, convenient cart functionality, and personalized profiles. Dive into a harmonious fusion of beautiful UI and powerful functionality!
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/OSS7/Fruits_Market/assets/57839549/34f90581-3484-4e21-974e-72b633c819fe
