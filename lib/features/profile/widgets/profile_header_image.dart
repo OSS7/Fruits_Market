@@ -35,7 +35,7 @@ class _ProfileHeaderImageState extends State<ProfileHeaderImage> {
               ),
               child: Stack(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 200.0,
                     height: 200.0,
                     child: CircleAvatar(

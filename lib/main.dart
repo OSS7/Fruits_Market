@@ -12,6 +12,7 @@ import 'features/cart/bloc/cart_bloc.dart';
 import 'features/cart/cart_view.dart';
 import 'features/fruit/fruits/fruits_view.dart';
 import 'features/profile/profile_view.dart';
+import 'features/splash/splash_view.dart';
 
 void main() {
   LocalStorage.init();
@@ -37,7 +38,7 @@ class FruitsMarket extends StatelessWidget {
         themeMode: ThemeMode.light,
         theme: MyThemeData.myTheme(false, context),
         // darkTheme: _darkTheme,
-        home: const HomeScreen(),
+        home: const SplashView(),
       ),
     );
   }

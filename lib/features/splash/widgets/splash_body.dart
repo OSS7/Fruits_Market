@@ -17,7 +17,6 @@ class _SplashBodyState extends State<SplashBody>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
@@ -29,7 +28,6 @@ class _SplashBodyState extends State<SplashBody>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     animationController!.dispose();
   }
@@ -64,7 +62,7 @@ class _SplashBodyState extends State<SplashBody>
 
   goToNextView() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const FruitsView(), transition: Transition.rightToLeft);
+      Get.to(() => const OnBoardingView(), transition: Transition.rightToLeft);
     });
   }
 }
